@@ -157,8 +157,8 @@ class DateRangeGenerator(models.TransientModel):
         self.ensure_one()
         return self._generate_names(vals, self.name_expr, self.name_prefix)
 
-    @staticmethod
-    def _generate_names(vals, name_expr, name_prefix):
+    @api.model
+    def _generate_names(self, vals, name_expr, name_prefix):
         """Generate the names for the given intervals and naming parameters"""
         names = []
         count_digits = len(str(len(vals) - 1))
